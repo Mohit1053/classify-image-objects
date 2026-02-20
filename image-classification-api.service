@@ -1,0 +1,25 @@
+[Unit]
+Description=Image Classification API
+After=network.target
+
+[Service]
+Type=exec
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/image-classification-api
+ExecStart=/opt/image-classification-api/start.sh
+ExecStop=/opt/image-classification-api/stop.sh
+Restart=always
+RestartSec=3
+
+# Environment variables
+Environment=PATH=/opt/image-classification-api/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+EnvironmentFile=-/opt/image-classification-api/.env
+
+# Resource limits
+LimitNOFILE=65536
+TimeoutStartSec=300
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
