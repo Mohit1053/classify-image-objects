@@ -145,3 +145,5 @@ pip-delete-this-directory.txt
 # =============================================================================
 .dockerignore
 docker-compose.override.yml
+*.pyc
+.mcp.json
